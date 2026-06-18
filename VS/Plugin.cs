@@ -12,8 +12,6 @@ namespace RealTimeClanker
         internal static Plugin Instance { get; private set; }
         internal static IPALogger Log { get; private set; }
 
-        //harmony 
-        //private Harmony harmony;
 
         private Assembly executingAssembly = Assembly.GetExecutingAssembly();
 
@@ -35,9 +33,10 @@ namespace RealTimeClanker
         {
             Log.Debug("Trying to arrive here...");
             new GameObject("RTController").AddComponent<RTController>();
-
-            // harmony
-            //harmony.PatchAll(executingAssembly);
+            
+            HarmonyLib.Harmony harmony = new HarmonyLib.Harmony("com.urkimimi.rtclanker");
+            Log.Debug("Applying Harmony patches");
+            harmony.PatchAll();
         }
 
         [OnExit]

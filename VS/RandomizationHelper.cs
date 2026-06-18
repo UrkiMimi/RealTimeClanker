@@ -6,6 +6,9 @@ namespace RealTimeClanker
 {
     public class RandomizationHelper
     {
+        public static float sinNum = UnityEngine.Random.Range(-50f, 50f);
+        public static float cosNum = UnityEngine.Random.Range(-50f, 50f);
+
         //instancing
         public static RandomizationHelper instance { get; private set; }
 

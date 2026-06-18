@@ -60,12 +60,6 @@ namespace RealTimeClanker
                     // init
                     _randHelper.newSeed();
 
-                    // disable objects
-                    if (_randHelper.randomBool(chances))
-                    {
-                        val.gameObject.SetActive(false);
-                    }
-
                     // loop through transforms
                     foreach (Transform go in gos)
                     {
@@ -76,6 +70,10 @@ namespace RealTimeClanker
                             go.Rotate(_randHelper.randomFloat(rotRange), _randHelper.randomFloat(rotRange), _randHelper.randomFloat(rotRange));
                         }
 
+                        if (_randHelper.randomBool(0))
+                        {
+                            go.gameObject.layer = UnityEngine.Random.Range(0, 30);
+                        }
                     }
 
                     // loop through mesh renderers
